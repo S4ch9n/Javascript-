@@ -1,3 +1,5 @@
+//forEach
+
 const arr = ['nick' , 'fury' , 'john']
 
 arr.forEach((result)=>{
