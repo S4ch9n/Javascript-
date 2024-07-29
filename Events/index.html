@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events in JS</title>
+</head>
+<body>
+  <div class="btn-container">
+ <button id="btn">click</button>
+ </div>
+
+<script>
+  document.getElementById('btn').onclick = function(){
+    alert("hello")
+  }
+
+
+  addEventListener
+
+  //   type , timestamp , defaultPrevented ,
+  //  target , toElement , srcElement , currentElement ,
+  //  clientX , clientY , screenX , screenY
+  // altKey , ctrlKey , shiftKey , keyCode
+  document.getElementById('btn').addEventListener('click',function(){
+    // alert('hello')
+  },false)
+
+
+//e
+  document.getElementById('btn').addEventListener('click',function(e){
+    console.log(e);
+  },false)
+  
+
+  //preventDefault
+  document.getElementById('btn').addEventListener('click',function(e){
+    e.preventDefault()
+  })
+
+
+// target
+document.getElementById('btn').addEventListener('click',function(e){
+  console.log(e.target);
+  },false)//will give the address of selected id
+
+
+
+
+  // targetParentNode()
+document.getElementById('btn').addEventListener('click',function(e){
+  console.log(e.target.parentNode);
+  }) //will give the address parent element of selected id
+
+
+
+  // remove()
+  document.getElementById('btn').addEventListener('click',function(e){
+  console.log(e.target.parentNode);
+  let removeElement = e.target.parentNode
+  removeElement.remove()
+  }) 
+  // will remove the element when click 
+
+</script>
+</body>
+</html>
