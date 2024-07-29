@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AsyncJS</title>
+</head>
+<body>
+  <h1>Async / setInterval</h1>
+  <button id="start">Start</button>
+  <button id="end">End</button>
+
+  <script>
+    setInterval(function(){
+      console.log('Hello');
+    },2000) //will print hello continuously in the given second
+
+    const date = function(str){
+      console.log(str  , Date.now());
+    }
+    let intervalId;
+    document.querySelector('#start').addEventListener('click' , function(){
+      if(!intervalId){
+        intervalId =  setInterval(date , 1000 , 'Show Date : ')
+      }
+    })
+    
+    document.querySelector('#end').addEventListener('click' , function(){
+      clearInterval(intervalId);
+      intervalId = null;
+    })
+  </script>
+</body>
+</html>

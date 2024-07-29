@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async  </title>
+</head>
+<body>
+  <h1>Async JS  / setTimeout</h1>
+  <button id="btn">click</button>
+
+  <script>
+    //setTimeout
+    setTimeout(function(){
+      console.log('Hello');
+    }, 2000)
+
+   
+   const sayHello = function(){
+    console.log('HELLO');
+   }
+   setTimeout(sayHello , 4000) //will get the message on console hello 
+
+
+   const changeText = function(){
+   document.querySelector('h1').innerHTML = "Change text"
+   }
+   const setTime = setTimeout(changeText , 2000)//will change the text of h1 after 2 second
+
+   document.querySelector('#btn').addEventListener('click',function(){
+    clearTimeout(setTime)
+    console.log('STOOOPPPPPPPPP');
+   }) //will stop the setTime to execute ,  when click on the button.
+
+  </script>
+</body>
+</html>
