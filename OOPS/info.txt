@@ -1,0 +1,25 @@
+##Javascript and Classes
+
+#Object
+- collection of properties and methods
+
+
+#why we use OOP
+
+
+#parts of OOP
+- Object literal
+
+
+- Constructor function
+-Prototypes
+-Classes
+-Instance(new , this)
+
+
+
+#4pillars
+- Abstraction
+- Encapsulation
+- Inheritance
+- Polymorphism
