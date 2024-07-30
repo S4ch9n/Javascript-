@@ -2,12 +2,12 @@ const promiseOne = new Promise(function (resolve, response) {
   //Do an async task
   // DB calls, cryptography , network
   setTimeout(function () {
-    console.log('Async task in complete');
+    console.log('Async task in complete'); //Async task in complete
     resolve()
   }, 1000)
 })
 promiseOne.then(function () { //.then has connection with resolve
-  console.log('Promise consumed');
+  console.log('Promise consumed'); //Promise consumed
 })
 
 
@@ -15,11 +15,11 @@ promiseOne.then(function () { //.then has connection with resolve
 //
 new Promise(function (resolve, reject) {
   setTimeout(function () {
-    console.log('Async task two');
+    console.log('Async task two'); //Async task two
     resolve()
   }, 1000)
 }).then(function () {
-  console.log('Async two resolved');
+  console.log('Async two resolved'); //Async two resolved
 })
 
 
@@ -78,6 +78,7 @@ async  function consumePromiseFive(){
   }
 }
 consumePromiseFive()
+//Error : Something went wrong
 
 
 
