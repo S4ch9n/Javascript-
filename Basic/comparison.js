@@ -8,7 +8,7 @@ console.log( 2 != 1 ); // true
 console.log('B' > ' A'); // true
 console.log('BEE' > 'TEE'); //false
 console.log('BEE' > 'BE'); //true
-console.log('BE' > 'BEE'); //FALSE
+console.log('BE' > 'BEE'); //FALSE 
 console.log('BCD' > 'ABC'); //TRUE
 
 
