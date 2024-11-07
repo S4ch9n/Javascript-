@@ -20,8 +20,8 @@ console.log(lname);
 //here we are declaring to variable but initializing only one variable and copying the value of initialized variable into another value.
 
 
-let this = 'hello';
-let this = 'hi';
+// let this = 'hello';
+// let this = 'hi';
 // this will throw syntax error as we cant declare the variable with the same name.
 
 let userName = 'nick'; //this case called camel case , where first letter is small and another is capital
@@ -33,8 +33,8 @@ let _123 = 'haha';
 let $ahsd123 = 'can';
 //we can declare variable like this
 
-let 1a = '123';
-let hi-hah = 'rat';
+// let 1a = '123';
+// let hi-hah = 'rat';
 //these will throw error as we cant declare the variable like this , we cant use hyphen and number before declaring any variable .
 
 
