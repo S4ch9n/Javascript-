@@ -104,3 +104,39 @@ alert( Number("   123   ") ); // 123
 alert( Number("123z") );      // NaN (error reading a number at "z")
 alert( Number(true) );        // 1
 alert( Number(false) );       // 0
+
+//// 1. 5 > 4 → true
+console.log(5 > 4); // true
+// Explanation: 5 is greater than 4, so this comparison is true.
+
+// 2. "apple" > "pineapple" → false
+console.log("apple" > "pineapple"); // false
+// Explanation: String comparison is done lexicographically (alphabetically).
+// "apple" comes before "pineapple" because the first differing character is 'a' vs 'p'.
+
+// 3. "2" > "12" → true
+console.log("2" > "12"); // true
+// Explanation: JavaScript compares strings lexicographically.
+// "2" is considered greater than "1" (the first character of "12"), so this comparison is true.
+
+// 4. undefined == null → true
+console.log(undefined == null); // true
+// Explanation: With the `==` operator, `undefined` and `null` are considered equal,
+// even though they are different types. This is because `==` performs type coercion.
+
+
+// 5. undefined === null → false
+console.log(undefined === null); // false
+// Explanation: The `===` operator checks both value and type. `undefined` and `null`
+// are different types, so this comparison is false.
+
+// 6. null == "\n0\n" → false
+console.log(null == "\n0\n"); // false
+// Explanation: Even though the string contains the number '0', `null` is not loosely
+// equal to any non-null value. The `==` operator will not consider them equal.
+
+
+// 7. null === +"\n0\n" → false
+console.log(null === +"\n0\n"); // false
+// Explanation: The unary plus (`+`) operator converts the string `"\n0\n"` into a number (0).
+// `null` is not the same as `0`, so this strict comparison (`===`) returns false.
