@@ -186,3 +186,16 @@ let num4 = prompt("Second number: ");
 // Convert num3 and num4 from strings to numbers using Number() 
 // and add them together, then log the result to the console.
 console.log(Number(num3) + Number(num4)); 
+
+
+// Without using the Number() function, we can use the unary plus operator
+// let a = +prompt("First number?", 1);
+// let b = +prompt("Second number?", 2);
+
+// alert(a + b); // 3
+
+// Or in the alert directly : 
+// let a = prompt("First number?", 1);
+// let b = prompt("Second number?", 2);
+
+// alert(+a + +b); // 3
