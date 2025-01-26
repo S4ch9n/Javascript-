@@ -44,3 +44,54 @@ const userEmail = false ;
 const userPassword = true;
 if(userEmail || userPassword) console.log('User log'); //user log
 //at least one should be true
+
+
+//ternary operator
+let age = 18;
+let result = (age >= 18) ? true : false;
+console.log(result);
+
+
+
+//multiple ?
+let age2 = prompt('age?', 18);
+let message = (age < 3) ? 'Hi, baby!' :
+  (age < 18) ? 'Hello!' :
+  (age < 100) ? 'Greetings!' :
+  'What an unusual age!';
+
+alert( message );
+
+
+//q-1  : to check if user is adult or teenager
+let value = prompt("enter your age : ");
+let result2 = value >= 18 ? 'user is adult' : 'user is teenager';
+console.log(result2);
+
+
+//change to ? operator 
+// let result;
+
+// if (a + b < 4) {
+//   result = 'Below';
+// } else {
+//   result = 'Over';
+// }
+let result4 = (a + b < 4) ? 'Below' : 'Over';
+
+
+//change to ? operator 
+// let message;
+// if (login == 'Employee') {
+//   message = 'Hello';
+// } else if (login == 'Director') {
+//   message = 'Greetings';
+// } else if (login == '') {
+//   message = 'No login';
+// } else {
+//   message = '';
+// }
+let message2 = (login == 'Employee') ? 'Hello':
+(login == 'Director') ? 'Greetings':
+(login == '') ? 'No login':
+'';
