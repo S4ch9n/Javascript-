@@ -178,14 +178,14 @@ console.log(" \t \n" - 2); // Output: -2
 
 //q-3
 // Prompt the user for the first number and store it in num3 (as a string)
-let num3 = prompt("First number: ");  
+// let num3 = prompt("First number: ");  >>>>
 
 // Prompt the user for the second number and store it in num4 (as a string)
-let num4 = prompt("Second number: ");  
+// let num4 = prompt("Second number: ");  >>>>
 
 // Convert num3 and num4 from strings to numbers using Number() 
 // and add them together, then log the result to the console.
-console.log(Number(num3) + Number(num4)); 
+// console.log(Number(num3) + Number(num4)); 
 
 
 // Without using the Number() function, we can use the unary plus operator
@@ -199,3 +199,199 @@ console.log(Number(num3) + Number(num4));
 // let b = prompt("Second number?", 2);
 
 // alert(+a + +b); // 3
+
+
+
+//logical operators
+//There are four logical operators in JavaScript: || (OR), && (AND), ! (NOT), ?? (Nullish Coalescing).
+
+//OR || operator 
+//if any of its arguments is true then it return true , otherwise it return false
+console.log( true || true );   // true
+console.log( false || true );  // true
+console.log( true || false );  // true
+console.log( false || false ); // false
+
+//
+if (1 || 0) { // works just like if( true || false )
+  console.log( 'truthy!' );
+}
+
+//
+let time = 12;
+let isTrue = true;
+if(time <  24 || time > 18 || isTrue){
+  console.log("weekend time");
+}
+
+//if all operands have been evaluated , i.e all are false , then returned the last operand.
+// In other words, a chain of OR || returns the first truthy value or the last one if no truthy value is found.
+
+console.log( 1 || 0 ); // 1 (1 is truthy)
+console.log( null || 1 ); // 1 (1 is the first truthy value)
+console.log( null || 0 || 1 ); // 1 (the first truthy value)
+console.log( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+
+
+let firstName = ""; // Empty string is falsy in JavaScript.
+let lastName = ""; // Empty string is also falsy in JavaScript.
+let nickName = "coderThePro"; // Non-empty string is truthy.
+console.log(firstName || lastName || nickName || "if all the values are false, then this gets printed");
+// The output will be "coderThePro" because it's the first truthy value.
+
+
+//Another feature of OR || operator is the so-called “short-circuit” evaluation.
+//It means that || processes its arguments until the first truthy value is reached, and then the value is returned immediately, without even touching the other argument.
+
+
+//
+true || console.log("hello");
+// The OR (||) operator stops evaluation as soon as it encounters a truthy value.
+// Since the first operand (`true`) is truthy, "hello" will not be printed.
+
+false || console.log("hii");
+// The first operand (`false`) is falsy, so the OR operator evaluates the second operand.
+// As a result, "hii" will be printed.
+
+
+//AND && operator
+// In classical programming, AND returns true if both operands are truthy and false otherwise:
+console.log(true && true); //true
+console.log(true && false); //false
+console.log(false && true); //false
+console.log(false && false); //true
+
+
+//
+let hour = 12;
+let minute = 30;
+if(hour == 12 && minute == 30){ //here both operands are true
+  console.log("the time is 12 : 30");
+}
+
+if(1 && 0){ //// evaluated as true && false
+  console.log("hello"); //will not print , because here one operand is true and other is false
+}else{
+  console.log("not executed"); //this will be print , because if condition will be incorrect
+}
+
+// The AND (&&) operator evaluates operands from left to right.
+// If all operands are truthy, it returns the last operand.
+let ab = "hello"; // truthy
+let cd = "hii";   // truthy
+let ef = "whats up"; // truthy
+console.log(ab && cd && ef); // All operands are truthy, so it returns "whats up".
+
+
+
+// If any operand is falsy, the AND (&&) operator stops evaluation and returns the first falsy value.
+console.log(1 && 2 && null && 3); 
+// Output: null, because null is the first falsy value encountered.
+
+// If all operands are truthy, the AND (&&) operator evaluates all operands and returns the last one.
+console.log(1 && 2 && 3); 
+// Output: 3, because all operands are truthy, so the last value is returned.
+
+
+//Note : Precedence of AND && is higher than OR ||
+//So the code a && b || c && d is essentially the same as if the && expressions were in parentheses: (a && b) || (c && d).
+
+
+
+//! (NOT)
+// The boolean NOT operator is represented with an exclamation sign !.
+//converts the operand to its boolean type .true or false.
+//return the inverse value
+
+console.log(!false); //true
+console.log(!true); //false
+
+
+//A double NOT !! is sometimes used for converting a value to boolean type:
+console.log(!!("hello my name is John")); //true
+console.log(!!""); //false
+//That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
+
+
+//q-1
+console.log( console.log(1) || 2 || console.log(3) );
+
+//q-2
+console.log( null || 2 || undefined );
+//The answer is 2, that’s the first truthy value.
+
+//q-3
+console.log( 1 && null && 2 );
+//the answer is null , returned first falsy value
+
+//q-4
+console.log(console.log(1) && console.log(2));
+// Step 1: The inner `console.log(1)` is executed first.
+// This prints `1` to the console and returns `undefined` (because `console.log` always returns `undefined`).
+
+// Step 2: The AND (&&) operator evaluates the left-hand operand.
+// Since `undefined` is falsy, the `&&` operator short-circuits and does not evaluate `console.log(2)`.
+
+// Step 3: The outer `console.log` prints the result of the expression.
+// The value of the entire expression is `undefined` because the `&&` operator returned the first falsy value (`undefined`).
+
+
+//q-5
+console.log(null || 2 && 3 || 4); 
+// Step 1: Evaluate `2 && 3` -> Result is `3`
+// Expression becomes: `null || 3 || 4`
+// Step 2: Evaluate `null || 3` -> Result is `3`
+// Step 3: Evaluate `3 || 4` -> Result is `3`
+// Final Output: 3
+
+
+// Q-6
+// Write an if condition to check if age is between 14 and 90 inclusively.
+let age = 24;
+
+// Check if age is greater than or equal to 14 AND less than or equal to 90.
+if (age >= 14 && age <= 90) {
+  console.log("age is between 14 and 90");
+} else {
+  console.log("age does not lie between 14 and 90");
+}
+
+
+//q-6
+//Write an if condition to check that age is NOT between 14 and 90 inclusively.
+// Create two variants: the first one using NOT !, the second one – without it.
+
+let age2 = 67;
+// Check if age is NOT between 14 and 90 inclusively using NOT (!).
+if (!(age2 >= 14 && age2 <= 90)) {
+  console.log("age is NOT between 14 and 90");
+} else {
+  console.log("age is between 14 and 90");
+}
+
+
+//the second one
+let age3 = 44;
+// Check if age is NOT between 14 and 90 inclusively without using NOT (!).
+if (age3 < 14 || age3 > 90) {
+  console.log("age is NOT between 14 and 90");
+} else {
+  console.log("age is between 14 and 90");
+}
+
+
+//q-7
+// First condition: if (-1 || 0)
+if (-1 || 0) {
+  console.log('first'); // -1 is truthy, so OR (||) operator returns -1 and the condition is true
+}
+
+// Second condition: if (-1 && 0)
+if (-1 && 0) {
+  console.log('second'); // -1 is truthy, but 0 is falsy, so AND (&&) operator returns 0 and the condition is false
+}
+
+// Third condition: if (null || -1 && 1)
+if (null || -1 && 1) {
+  console.log('third'); // -1 && 1 evaluates to 1 (truthy), so OR (||) operator returns 1 and the condition is true
+}

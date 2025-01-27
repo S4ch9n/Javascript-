@@ -54,13 +54,13 @@ console.log(result);
 
 
 //multiple ?
-let age2 = prompt('age?', 18);
-let message = (age < 3) ? 'Hi, baby!' :
-  (age < 18) ? 'Hello!' :
-  (age < 100) ? 'Greetings!' :
+let age2 = prompt('enter your age : ');
+let message = (age2 < 3) ? 'Hi, baby!' :
+  (age2 < 18) ? 'Hello!' :
+  (age2 < 100) ? 'Greetings!' :
   'What an unusual age!';
 
-alert( message );
+console.log(message);
 
 
 //q-1  : to check if user is adult or teenager
