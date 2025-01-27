@@ -393,5 +393,98 @@ if (-1 && 0) {
 
 // Third condition: if (null || -1 && 1)
 if (null || -1 && 1) {
-  console.log('third'); // -1 && 1 evaluates to 1 (truthy), so OR (||) operator returns 1 and the condition is true
+  console.log('third'); // -1 && 1 evaluates to 1 (truthy), so OR (||) operator returns 1 and the condition is true.
 }
+
+
+//q-8
+// Write the code which asks for a login with prompt.
+
+// If the visitor enters "Admin", then prompt for a password, if the input is an empty line or Esc – show “Canceled”, if it’s another string – then show “I don’t know you”.
+
+// The password is checked as follows:
+
+// If it equals “TheMaster”, then show “Welcome!”,
+// Another string – show “Wrong password”,
+// For an empty string or cancelled input, show “Canceled”
+
+
+let user = prompt("Please enter your login details: "); // Prompt for login
+
+if (user === 'Admin') {
+    // Prompt for password if login is Admin
+    let password = prompt("Please enter your password: ");
+
+    // Check the password
+    if (password === "TheMaster") {
+        console.log("Welcome!");  // Correct password
+    } else if (password === "" || password === null) { //// "" > for empty string and null > null is the value returned when the user presses the Esc button or cancels the prompt entirely.
+        console.log("Canceled");  // Cancelled input (empty string or null)
+    } else {
+        console.log("Wrong password");  // Incorrect password
+    }
+} else if (user === "" || user === null) { // "" > for empty string and null > null is the value returned when the user presses the Esc button or cancels the prompt entirely.
+    console.log("Canceled");  // Cancelled input (empty string or null)
+} else {
+    console.log("I don't know you");  // If login is not Admin
+}
+
+
+
+//Nullish coalescing operator '??'
+//The nullish coalescing operator is written as two question marks ??.
+// As it treats null and undefined similarly,
+//The result of a ?? b is:
+// if a is defined, then a,
+// if a isn’t defined, then b.
+// In other words, ?? returns the first argument if it’s not null/undefined. Otherwise, the second one.
+// The nullish coalescing operator isn’t anything completely new. It’s just a nice syntax to get the first “defined” value of the two.
+
+// For example, here we show user if its value isn’t null/undefined, otherwise Anonymous:
+let user2;
+console.log(user2 ?? "Anonymous"); // Anonymous (user is undefined)
+
+//with user defined
+let user3 = "admin";
+console.log(user3 ?? "Anonymous"); //'admin' will print
+
+
+//
+let firstName2 = null;
+let lastName2 = null;
+let nickName2 = "Supercoder";
+
+// shows the first defined value:
+console.log(firstName2 ?? lastName2 ?? nickName2 ?? "Anonymous"); // Supercoder
+
+
+//The important difference between or || and nullish coalescing ?? is that:
+// || returns the first truthy value.
+//In other words, || doesn’t distinguish between false, 0, an empty string "" and null/undefined. They are all the same – falsy values. If any of these is the first argument of ||, then we’ll get the second argument as the result.
+
+// ?? returns the first defined value.
+
+let height = 0;
+
+console.log(height || 100); // 100
+console.log(height ?? 100); // 0
+// The height || 100 checks height for being a falsy value, and it’s 0, falsy indeed.
+// so the result of || is the second argument, 100.
+// The height ?? 100 checks height for being null/undefined, and it’s not,
+// so the result is height “as is”, that is 0
+
+//The precedence of the ?? operator is the same as ||.
+// That means that, just like ||, the nullish coalescing operator ?? is evaluated before = and ?, but after most other operations, such as +, *.
+
+// So we may need to add parentheses in expressions like this:
+
+let height2 = null;
+let width = null;
+
+// important: use parentheses
+let area = (height2 ?? 100) * (width ?? 50);
+
+console.log(area); // 5000
+
+// The operator ?? has a very low precedence, only a bit higher than ? and =, so consider adding parentheses when using it in an expression.
+// It’s forbidden to use it with || or && without explicit parentheses.
