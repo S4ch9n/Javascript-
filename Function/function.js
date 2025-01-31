@@ -206,3 +206,35 @@ function addOne(num){
 const addTwo = function(num){
   return num + 1
 }
+
+//function expression
+// it allow us to create a new function in the middle of any expression
+
+let sayHi = function(){
+  console.log('Hii');
+}
+//Here we can see a variable sayHi getting a value, the new function, created as function() { alert("Hello"); }.
+//Please note, there’s no name after the function keyword. Omitting a name is allowed for Function Expressions.
+
+
+//function value
+function sayHello(){
+  console.log("hello");
+}
+console.log(sayHello); //show the function code.
+//In JavaScript, a function is a value, so we can deal with it as a value. The code above shows its string representation, which is the source code.
+
+
+//copying function to another variable
+
+function sayHup() { // Create a function named 'sayHup'
+  console.log("Hello, what's up bro!");
+}
+
+let func = sayHup; // Copy the reference of 'sayHup' to a new variable 'func'
+func(); // Call the copied reference (will work as expected)
+sayHup(); // Call the original function (works as well)
+// The Function Declaration (1) creates the function and puts it into the variable named sayHi.
+// Line (2) copies it into the variable func. Please note again: there are no parentheses after sayHi. If there were, then func = sayHi() would write the result of the call sayHi() into func, not the function sayHi itself.
+// Now the function can be called as both sayHi() and func().
+
