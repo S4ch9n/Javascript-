@@ -48,3 +48,12 @@ function sum(a, b) {
 let sum = function(a, b) {
   return a + b;
 };
+
+//
+let age = prompt("What is your age?", 18);
+
+let welcome = (age < 18) ?
+  function() { alert("Hello!"); } :
+  function() { alert("Greetings!"); };
+
+welcome(); //
