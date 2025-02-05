@@ -1,4 +1,5 @@
 //arrow function ()=>{}
+// let func = (arg1 , arg2 ,...,argN) => expression
 
  
 // this in arrow function   
