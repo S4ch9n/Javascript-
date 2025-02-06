@@ -4,6 +4,10 @@
 //Primitive datatypes
 
 //number
+//numbers can be written with or without decimal 
+var num1 = 42;      //Written without decimals. 
+var num2 = 42.00;   //Written with decimals.
+var num3 = 2e5;     //200000
 let number = 1223
 console.log(number);
 console.log('Type of number is : ' + typeof number);
@@ -15,9 +19,20 @@ console.log(name);
 console.log('Type of name is : ' + typeof name);
 
 //boolean
+//boolean can have two value . true/ false
  let isBoolean = true;
+ let isBoolean2 = false;
  console.log(isBoolean);
 console.log('Type of isBoolean is : ' + typeof isBoolean);
+console.log(isBoolean2);
+console.log('Type of isBoolean2 is : ' + typeof isBoolean2);
+
+//string
+//string is written quote . Single quote or double quote.
+var web = 'website';
+var web2 = "website";
+console.log(web);
+console.log(web2);
 
 
  //bigInit
