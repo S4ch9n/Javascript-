@@ -34,6 +34,16 @@ const username = () => console.log("no arguments are present");
 console.log(username());
 
 
+const fname = (name) => {
+  return `My name is ${name} `;
+};
+
+// Call the function and store the result
+const result2 = fname('john');
+
+// Output the result
+console.log(result2); // My name is john
+
 //Arrow functions can be used in the same way as Function Expressions.
 let age = 18 
 let result = (age >= 18) ? 
