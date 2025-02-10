@@ -57,3 +57,19 @@ let welcome = (age < 18) ?
   function() { alert("Greetings!"); };
 
 welcome(); //
+
+
+//task 2
+// A function that takes a callback as an argument
+function processUserInput(name, callback) {
+  console.log(`Hello, ${name}!`);
+  callback();
+}
+
+// Callback function
+function displayThanks() {
+  console.log("Thank you for providing your name!");
+}
+
+// Calling the function with the callback
+processUserInput("Alice", displayThanks);
