@@ -229,3 +229,51 @@ function sayGreeting2(name) {
 
 console.log(sayGreeting2('Nick')); // Output: hii Nick
 console.log(greeting); // The external variable 'greeting' is now changed to 'hii'.
+
+
+
+//IIFE : Immediately Invoked Function Expression . Means execute the function immediately where it define.
+(function (){
+console.log("iam an iife function...");
+})()
+
+
+// Call Stack: The call stack is a data structure that keeps track of function calls. 
+// Functions are added to the stack when they are called and removed once they complete execution.
+
+function f1() {
+  console.log("This is first function");
+}
+
+function f2() {
+  f1(); // f2 calls f1, so f1 is added to the call stack.
+  console.log("This is second function");
+}
+
+function f3() {
+  f2(); // f3 calls f2, so f2 is added to the call stack.
+  console.log("This is third function");
+}
+
+f3(); // Execution starts here, adding f3 to the call stack.
+
+
+
+// Recursion: A function that calls itself to solve smaller instances of a problem.
+// Here, `fetchWater` is a recursive function that continues calling itself 
+// until a base condition (`count == 0`) is met.
+
+function fetchWater(count) {
+  // Base Case: Stops the recursion when `count` reaches 0.
+  if (count == 0) {
+    console.log("No more water left!");
+    return; // End the recursion
+  }
+
+  // Recursive Case: Perform the operation and call the function again with a reduced value.
+  console.log("Fetching water....");
+  fetchWater(count - 1); // Recursive call with `count` decremented by 1.
+}
+
+// Initial call to the recursive function with `count = 5`.
+fetchWater(5);
