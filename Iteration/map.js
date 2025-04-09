@@ -26,3 +26,47 @@ const result2 = num2.map((newNum2) => {
   return newNum2 * 10
 })
 console.log(result2);
+
+// Step-by-Step Explanation:
+// Original Array: num contains [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
+
+// Callback Function:
+
+// The callback takes newNum (the current element of the array) as input.
+
+// Adds 2 to newNum and returns it.
+
+// Transformation:
+
+// Each element of the array is processed:
+
+// 1 + 2 = 3
+
+// 2 + 2 = 4
+
+// ...
+
+// 10 + 2 = 12.
+
+// New Array:
+
+// The map() method returns a new array with the transformed values: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12].
+
+// Common Use Cases:
+// Transformation: Convert an array of numbers to their squares:
+const nums = [1, 2, 3];
+const squares = nums.map(x => x * x);
+console.log(squares); // [1, 4, 9]
+
+// Extract Properties: Extract specific properties from an array of objects:
+const users = [{ name: "Alice" }, { name: "Bob" }];
+const names = users.map(user => user.name);
+console.log(names); // ["Alice", "Bob"]
+
+
+// Generate New Data: Create a new array with formatted data:
+const prices = [5, 10, 15];
+const priceTags = prices.map(price => `$${price}`);
+console.log(priceTags); // ["$5", "$10", "$15"]
+
+// In summary, map() is a powerful tool for processing and transforming arrays in JavaScript, offering a clean and functional way to create new data structures.
