@@ -4,7 +4,7 @@ console.log( 2 == 1 ); // false
 console.log( 2 != 1 ); // true 
 
 // String comparison
-// To see whether a string is greater than another, JavaScript uses the so-called “dictionary” or “lexicographical” order.
+// To see whether a string is greater than another, JavaScript uses the so-called “dictionary” or “lexicographical” order. 
 console.log('B' > ' A'); // true
 console.log('BEE' > 'TEE'); //false
 console.log('BEE' > 'BE'); //true
