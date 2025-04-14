@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-black">
+    <h1 id="title">DOM learning</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum exercitationem fugiat repudiandae ut, ipsa quos labore unde vitae architecto quibusdam.</p>
+  </div>
+
+  <script>
+    document.getElementById('title').innerHTML = "Change heading";
+
+  </script>
+</body>
+</html>
