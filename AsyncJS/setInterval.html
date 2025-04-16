@@ -13,23 +13,32 @@
   <script>
 
 
-    setInterval(function(){
-      console.log('Hello');
-    },2000) //will print hello continuously in the given second
-    const date = function(str){
-      console.log(str  , Date.now());
-    }
+    // setInterval(function(){
+    //   console.log('Hello');
+    // },2000) //will print hello continuously in the given second
+
+
+    // const date = function(str){
+    //   console.log(str  , Date.now());
+    // }
+    // setInterval(date , 1000 , "hii")
+
+    //
     let intervalId;
-    document.querySelector('#start').addEventListener('click' , function(){
-      if(!intervalId){
-        intervalId =  setInterval(date , 1000 , 'Show Date : ')
-      }
-    })
-    
-    document.querySelector('#end').addEventListener('click' , function(){
-      clearInterval(intervalId);
-      intervalId = null;
-    })
+
+document.querySelector('#start').addEventListener('click', function () {
+  if (!intervalId) {
+    intervalId = setInterval(function () {
+      console.log('Show Date :', Date.now());
+    }, 1000);
+  }
+});
+
+document.querySelector('#end').addEventListener('click', function () {
+  clearInterval(intervalId);
+  intervalId = null;
+});
+
   </script>
 </body>
 </html>
