@@ -37,6 +37,8 @@ let myHeros = ["thor" , 'spiderman']
 
 let heroPower = {
   thor : "hammer",
-  spiderman : "sling"
+  spiderman : "sling",
+
+  getPower  : function
 
 }
