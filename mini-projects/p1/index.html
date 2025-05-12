@@ -7,43 +7,67 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Main container for the password generator -->
   <div class="container">
+    <!-- Title of the application -->
     <h1>Generate a <br> <span>Random Password</span></h1>
+
+    <!-- Display section for the generated password -->
     <div class="display">
+      <!-- Input field to display the generated password (readonly to prevent manual edits) -->
       <input type="text" id="password" placeholder="Password" readonly>
-      <img src="images/copy-content-icon-template-black-color-editable-copy-content-icon-symbol-flat-illustration-for-graphic-and-web-design-free-vector-removebg-preview.png" alt="Copy" onclick="copyPassword()">
+      <!-- Icon for copying the password to the clipboard -->
+      <img src="images/copy-content-icon-template-black-color-editable-copy-content-icon-symbol-flat-illustration-for-graphic-and-web-design-free-vector-removebg-preview.png" 
+           alt="Copy" 
+           onclick="copyPassword()">
     </div>
+
+    <!-- Button to generate a new password -->
     <button onclick="createPassword()">
       <img src="images/5024723-200.png" alt="Generate Password">Generate Password
     </button>
   </div>
 
   <script>
+    // Select the password input box
     const passwordBox = document.getElementById('password');
-    const length = 12;
-    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-    const numbers = "0123456789";
-    const symbols = "!@#$%^&*()_-+={[}]|\\:;'<,>.";
 
+    // Set the desired password length
+    const length = 12;
+
+    // Define character sets for the password
+    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Uppercase letters
+    const lowerCase = "abcdefghijklmnopqrstuvwxyz"; // Lowercase letters
+    const numbers = "0123456789";                   // Numbers
+    const symbols = "!@#$%^&*()_-+={[}]|\\:;'<,>."; // Symbols and special characters
+
+    // Combine all character sets into one
     const allChars = upperCase + lowerCase + numbers + symbols;
 
+    // Function to generate a random password
     function createPassword() {
       let password = "";
+
+      // Ensure at least one character from each set is included
       password += upperCase[Math.floor(Math.random() * upperCase.length)];
       password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
       password += numbers[Math.floor(Math.random() * numbers.length)];
       password += symbols[Math.floor(Math.random() * symbols.length)];
 
+      // Fill the remaining length with random characters from all sets
       while (password.length < length) {
         password += allChars[Math.floor(Math.random() * allChars.length)];
       }
 
+      // Set the generated password in the input box
       passwordBox.value = password;
     }
 
-    function copyPassword(){
+    // Function to copy the generated password to the clipboard
+    function copyPassword() {
+      // Select the text in the input box
       passwordBox.select();
+      // Copy the selected text to the clipboard
       document.execCommand("copy");
     }
   </script>
