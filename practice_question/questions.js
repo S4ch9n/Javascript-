@@ -121,3 +121,8 @@ greet('Geek', message => console.log(message));
 // Explanation of the callback:
 // - `message` is the argument passed to the callback function from inside `greet`.
 // - The callback function logs the `message` to the console.
+
+
+//6. Write a code to create an arrow function?
+const add = (a, b) => a + b;
+console.log(add(6, 2));
