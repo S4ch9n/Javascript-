@@ -1,3 +1,38 @@
+//calback : a function that is passed as an argument to another function .
+
+const { func } = require("prop-types");
+
+// used to handle asynchronos operation:
+// 1. Reading a file.
+// 2. Network reuests.
+// 3. Interacting with database.
+
+// "Hey , when you are done, call this next."
+
+//example
+function hello(callback){
+  console.log("hello");
+  callback()
+}
+function goodbye(){
+  console.log("Goodbye");
+}
+hello(goodbye);
+
+
+//example 2
+
+function sum(callback , x, y){
+  let result = x + y;
+  callback(result)
+}
+function displaySum(result){
+  console.log(result)
+}
+sum(displaySum , 2 ,3);
+
+
+
 // This is a callback function example
 function ask(question, yes, no) {
   // 'question': The message to display in the confirmation dialog.
