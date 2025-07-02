@@ -1,3 +1,18 @@
+// Promise : An object that manages asynchronous operations.
+// Wrap a Promise Object around {asynchronous code}
+// "I promise to return a new value"
+// Pending -> RESOLVED or REJECTED
+// new Promise(resolve, reject) => ({asynchronous code})
+
+
+
+
+
+
+
+
+
+
 const promiseOne = new Promise(function (resolve, response) {
   //Do an async task
   // DB calls, cryptography , network
