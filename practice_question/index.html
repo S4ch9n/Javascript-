@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Sets the character encoding to UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the page responsive -->
+  <title>Document</title> <!-- Title of the page shown in the browser tab -->
+</head>
+<body>
+  <!-- A button that triggers the create() function when clicked -->
+  <button onclick="create()">
+    create me
+  </button>
+
+  <script>
+    // This function creates a new custom HTML element and appends it to the body
+    function create() {
+      // Create a new custom HTML element <geek>
+      let geek = document.createElement("geek");
+
+      // Set the text content inside the <geek> element
+      geek.textContent = "hello my name is abc";
+
+      // Add a class attribute with the value 'note' to the element
+      geek.setAttribute('class', 'note');
+
+      // Log the newly created element to the console for debugging
+      console.log(geek);
+
+      // Append the <geek> element to the body of the document
+      document.body.appendChild(geek);
+    }
+
+
+    function showThis(name){
+      console.log(this.name)
+    }
+    showThis("hello");
+  </script>
+</body>
+</html>

@@ -167,3 +167,14 @@ if (hour === 0 && prepand === ' AM ') {
 }
 // Display the current time
 console.log("Current Time: " + hour + prepand + " : " + minute + " : " + second)
+
+
+// How to concatenate two strings in JavaScript?
+let str1 = "Hello";
+let str2 = "World";
+
+let combine = str1 + " " +  str2;
+
+console.log(combine);
+
+
