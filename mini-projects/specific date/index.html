@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin : 0px;
+      padding : 0px;
+      box-sizing: border-box;
+    }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: whitesmoke;
+    }
+    .date-container{
+      margin: 0;
+      background-color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="date-container">
+    <h1 id="date">  </h1>
+  </div>
+
+  <script>
+    const date = new Date(1947,7,15);
+
+    const option = {
+      day : "numeric",
+      month : "long",
+      year : "numeric",
+    };
+
+    const formattedDate = date.toLocaleDateString('en-Us' , option);
+
+    document.getElementById('date').textContent = formattedDate;
+
+  </script>
+</body>
+</html>
