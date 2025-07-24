@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color slider</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slider-container">
+    <h1>Color slider</h1>
+    <input type="range" min="0" max="255" value="128" id="colorSlider">
+  </div>
+
+ <script>
+  const slider = document.getElementById('colorSlider');
+  slider.addEventListener('input', () => {
+    const value = slider.value;
+    document.body.style.backgroundColor = `rgb(${value}, ${255 - value}, 128)`;
+  });
+</script>
+
+</body>
+</html>
