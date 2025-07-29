@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Note Taking App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .app {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 10px;
+      font-size: 16px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .note {
+      background: #e9f0ff;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .note-title {
+      font-weight: bold;
+    }
+
+    .note-content {
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <input type="text" id="noteTitle" placeholder="Note Title" />
+    <textarea id="noteContent" placeholder="Note Content"></textarea>
+    <button onclick="saveNote()">Save Note</button>
+    <button onclick="deleteNote()">Delete Note</button>
+    <button onclick="clearAllNotes()">Clear All Notes</button>
+    <input type="text" id="search" placeholder="Search notes..." onkeyup="searchNotes()" />
+    <div id="notesList"></div>
+  </div>
+
+  <template id="noteTemplate">
+    <div class="note">
+      <input type="checkbox" class="note-checkbox" />
+      <h3 class="note-title"></h3>
+      <p class="note-content" id="wrap-it"></p>
+      <hr />
+    </div>
+  </template>
+
+  <script>
+    // Save note to localStorage
+    function saveNote() {
+      const noteTitle = document.getElementById('noteTitle').value;
+      const noteContent = document.getElementById('noteContent').value;
+
+      if (!noteTitle && !noteContent) return; // Don't save empty notes
+
+      const note = {
+        title: noteTitle,
+        content: noteContent
+      };
+
+      let notes = localStorage.getItem("notes");
+      notes = notes ? JSON.parse(notes) : [];
+
+      notes.push(note);
+      localStorage.setItem("notes", JSON.stringify(notes));
+
+      document.getElementById('noteTitle').value = '';
+      document.getElementById('noteContent').value = '';
+
+      displayNotes();
+    }
+
+    // Display all notes from localStorage
+    function displayNotes() {
+      document.getElementById('notesList').innerHTML = '';
+
+      let notes = localStorage.getItem('notes');
+      notes = notes ? JSON.parse(notes) : [];
+
+      notes.forEach(note => {
+        const template = document.getElementById('noteTemplate');
+        const clone = template.content.cloneNode(true);
+
+        clone.querySelector('.note-title').textContent = note.title;
+        clone.querySelector('.note-content').textContent = note.content;
+
+        document.getElementById('notesList').appendChild(clone);
+      });
+    }
+
+    // Delete selected notes
+    function deleteNote() {
+      let checkboxes = document.querySelectorAll('.note-checkbox');
+      let notes = localStorage.getItem('notes');
+      notes = notes ? JSON.parse(notes) : [];
+
+      let updatedNotes = [];
+
+      checkboxes.forEach((checkbox, index) => {
+        if (!checkbox.checked) {
+          updatedNotes.push(notes[index]);
+        }
+      });
+
+      localStorage.setItem("notes", JSON.stringify(updatedNotes));
+      displayNotes();
+    }
+
+    // Clear all notes
+    function clearAllNotes() {
+      localStorage.removeItem('notes');
+      displayNotes();
+    }
+
+    // Load notes on page load
+    window.onload = displayNotes;
+  </script>
+</body>
+
+</html>
