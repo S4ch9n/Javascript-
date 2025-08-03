@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pattern</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    #pattern {
+      width: fit-content;
+      height: fit-content;
+      margin: 1rem auto;
+    }
+
+    .form {
+      display: flex;
+      gap: 1rem;
+      padding: 2rem 5rem;
+      border-radius: 0.4rem;
+      flex-direction: column;
+      margin: 2rem auto;
+      width: fit-content;
+      align-items: center;
+      box-shadow: 1px 1px 10px 2px rgb(201, 230, 243);
+    }
+
+    #btn {
+      width: 150px;
+      padding: 0.4rem;
+      cursor: pointer;
+      border: 2px solid dodgerblue;
+      color: dodgerblue;
+      background-color: white;
+      outline: none;
+      font-weight: 600;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    }
+
+    #btn:hover {
+      background-color: dodgerblue;
+      color: white;
+    }
+
+    input {
+      outline: none;
+      border: 1px solid;
+      line-height: 1.5rem;
+      font-size: 1.1rem;
+      padding: 0 0.3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Pattern: Right-Half Pyramid</h1>
+  <form class="form" onsubmit="generatePattern(event)">
+    <label>Input No of Rows :
+      <input type="number" id="rows" min="1" max="10" />
+    </label>
+    <button id="btn" type="submit">Generate Pattern</button>
+  </form>
+  <table id="pattern"></table>
+
+  <script>
+    function generatePattern(event) {
+  event.preventDefault();
+
+  const rowsInput = document.getElementById("rows");
+  const num = parseInt(rowsInput.value);
+  const table = document.getElementById("pattern");
+
+  if (!num || num < 1 || num > 10) {
+    alert("Please enter a number between 1 and 10");
+    return;
+  }
+
+  table.innerHTML = "";
+
+  for (let i = 1; i <= num; i++) {
+    const tr = document.createElement("tr");
+
+    // Add empty cells on the left
+    for (let j = 1; j <= num - i; j++) {
+      const td = document.createElement("td");
+      td.textContent = "";
+      tr.appendChild(td);
+    }
+
+    // Add stars
+    for (let k = 1; k <= i; k++) {
+      const td = document.createElement("td");
+      td.textContent = "* ";
+      tr.appendChild(td);
+    }
+
+    table.appendChild(tr);
+  }
+
+  rowsInput.value = "";
+}
+
+  </script>
+</body>
+
+</html>
